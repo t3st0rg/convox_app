@@ -1,0 +1,12 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.5
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+        RACK_ENV: production
+    depends_on:
+          - db
